@@ -35,7 +35,6 @@ public class User implements UserDetails {
     @Column (name = "username")
     private  String username;
 
-
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles",
@@ -115,7 +114,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
+
+        return roles;
     }
 
     public String getPassword() {
