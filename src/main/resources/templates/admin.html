@@ -15,6 +15,8 @@
     <th>surname</th>
     <th>department</th>
     <th>salary</th>
+    <th>username</th>
+    <th>password</th>
     <th>update</th>
     <th>delete</th>
   </tr>
@@ -24,6 +26,8 @@
     <td th:utext="${user.surname}">Фамилия</td>
     <td th:utext="${user.department}">Отдел</td>
     <td th:utext="${user.salary}">Зарплата</td>
+    <td th:utext="${user.username}">Логин</td>
+    <td th:utext="${user.password}">Пароль</td>
     <td>
       <a th:href="@{/edit/{id}(id=${user.id})}">Обновить</a>
     </td>

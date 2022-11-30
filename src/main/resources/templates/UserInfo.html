@@ -31,6 +31,14 @@
     <input type="text" th:field="*{salary}" id="salary">
   </p>
   <p>
+    <label for="username">Логин:</label>
+    <input type="text" th:field="*{username}" id="username">
+  </p>
+  <p>
+    <input type="hidden" th:field="*{password}" id="password">
+    <input type="hidden" th:field="*{roles}" id="roles">
+  </p>
+  <p>
     <input type="submit" value="OK" />
   </p>
 </form>

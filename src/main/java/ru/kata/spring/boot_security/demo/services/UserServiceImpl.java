@@ -29,9 +29,9 @@ public class UserServiceImpl implements UserService{
     // Посмотреть работает или нужно обновление и сохранение разложить
     @Override
     public void saveUser(User user) {
-        if (!user.getPassword().equals(getUser(user.getId()).getPassword())) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-        }
+//        if (!user.getPassword().equals(getUser(user.getId()).getPassword())) {
+//            user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        }
         userRepository.save(user);
     }
 

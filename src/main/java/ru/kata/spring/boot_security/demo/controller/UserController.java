@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.kata.spring.boot_security.demo.model.Role;
@@ -27,16 +28,16 @@ public class UserController {
         this.roleService = roleService;
     }
 
-
-    @GetMapping("/user")
-    public String oneUser (@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("oneUser", user);
-        model.addAttribute("roles", user.getRoles());
-        return "user";
+    @GetMapping("/index")
+    public String index () {
+        return "index";
     }
+
+
 
     @GetMapping("/admin")
     public String allUser (@AuthenticationPrincipal User user, @AuthenticationPrincipal Role role, Model model) {
+       model.addAttribute("user", user);
        model.addAttribute("allRoles", roleService.getAllRole());
        model.addAttribute("allUsers", userService.getAllUsers());
         return "admin";
@@ -54,12 +55,14 @@ public class UserController {
         userService.saveUser(user);
         return "redirect:/admin";
     }
+
     @GetMapping("/edit/{id}")
     public String updateUser (@PathVariable("id") int id, Model model ){
         User user = userService.getUser(id);
         model.addAttribute("User", user);
         return "UserInfo";
     }
+
     @GetMapping("/delete/{id}")
     public String deleteUser (@PathVariable ("id") int id){
         userService.deleteUser(id);
@@ -73,8 +76,13 @@ public class UserController {
         return modelAndView;
 
     }
-//    @GetMapping("/login")
-//    public String loginPage (){
-//        return "login";
-//    }
+    @GetMapping("/user")
+    public String oneUser (@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("user", user);
+        model.addAttribute("roles", user.getRoles());
+        return "user";
+    }
 }
+
+
+
