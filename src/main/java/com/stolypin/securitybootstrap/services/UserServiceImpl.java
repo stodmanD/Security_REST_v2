@@ -1,11 +1,11 @@
-package ru.kata.spring.boot_security.demo.services;
+package com.stolypin.securitybootstrap.services;
 
 
+import com.stolypin.securitybootstrap.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.repository.UserRepository;
+import com.stolypin.securitybootstrap.repository.UserRepository;
 
 import java.util.List;
 

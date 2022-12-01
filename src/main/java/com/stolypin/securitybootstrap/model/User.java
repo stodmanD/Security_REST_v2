@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.model;
+package com.stolypin.securitybootstrap.model;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -45,8 +45,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(int id, String name, String surname, String department, int salary, String password, String username, Set<Role> roles) {
-        this.id = id;
+    public User(String name, String surname, String department, int salary, String password, String username, Set<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.department = department;

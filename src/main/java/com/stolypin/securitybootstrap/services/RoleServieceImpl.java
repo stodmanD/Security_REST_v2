@@ -1,10 +1,10 @@
-package ru.kata.spring.boot_security.demo.services;
+package com.stolypin.securitybootstrap.services;
 
+import com.stolypin.securitybootstrap.model.Role;
+import com.stolypin.securitybootstrap.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kata.spring.boot_security.demo.model.Role;
-import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 
 import java.util.HashSet;
 import java.util.List;
@@ -32,6 +32,10 @@ public class RoleServieceImpl implements RoleService{
         roleRepository.save(role);
     }
 
+    @Override
+    public Role findByRole(String role) {
+        return roleRepository.findByRole(role);
+    }
 
 
     @Override

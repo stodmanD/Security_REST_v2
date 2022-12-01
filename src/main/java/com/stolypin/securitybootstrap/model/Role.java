@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.model;
+package com.stolypin.securitybootstrap.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -16,9 +16,6 @@ public class Role implements GrantedAuthority {
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
-
-    public Role() {
-    }
 
 
     @Override
@@ -48,5 +45,9 @@ public class Role implements GrantedAuthority {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+    @Override
+    public String toString() {
+        return role;
     }
 }
