@@ -1,11 +1,11 @@
-package com.stolypin.securitybootstrap.services;
+package com.stolypin.securityrest.services;
 
 
-import com.stolypin.securitybootstrap.model.User;
+import com.stolypin.securityrest.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.stolypin.securitybootstrap.repository.UserRepository;
+import com.stolypin.securityrest.repository.UserRepository;
 
 import java.util.List;
 
@@ -29,9 +29,17 @@ public class UserServiceImpl implements UserService{
     // Посмотреть работает или нужно обновление и сохранение разложить
     @Override
     public void saveUser(User user) {
-//        if (!user.getPassword().equals(getUser(user.getId()).getPassword())) {
-//            user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        }
+        if (user.getPassword().isEmpty()) {
+            user.setPassword(userRepository.getByUsername(user.getUsername()).getPassword());
+        } else {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
+        userRepository.save(user);
+    }
+
+    @Override
+    public void addUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 

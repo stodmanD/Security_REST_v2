@@ -1,7 +1,7 @@
-package com.stolypin.securitybootstrap.services;
+package com.stolypin.securityrest.services;
 
-import com.stolypin.securitybootstrap.model.Role;
-import com.stolypin.securitybootstrap.repository.RoleRepository;
+import com.stolypin.securityrest.model.Role;
+import com.stolypin.securityrest.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
-package com.stolypin.securitybootstrap.services;
+package com.stolypin.securityrest.services;
 
-import com.stolypin.securitybootstrap.model.Role;
+import com.stolypin.securityrest.model.Role;
 
 import java.util.List;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.stolypin.securitybootstrap.configs;
+package com.stolypin.securityrest.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/login", "/logout").permitAll()
+                .antMatchers( "/login", "/logout", "/api/users/**").permitAll()
                 .antMatchers("/admin", "/UserInfo").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("USER", "ADMIN")
                 //.anyRequest().authenticated()

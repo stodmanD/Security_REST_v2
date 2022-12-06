@@ -1,9 +1,8 @@
-package com.stolypin.securitybootstrap.controller;
+package com.stolypin.securityrest.controller;
 
-import com.stolypin.securitybootstrap.model.Role;
-import com.stolypin.securitybootstrap.model.User;
-import com.stolypin.securitybootstrap.services.RoleService;
-import com.stolypin.securitybootstrap.services.UserService;
+import com.stolypin.securityrest.model.User;
+import com.stolypin.securityrest.services.RoleService;
+import com.stolypin.securityrest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -23,29 +22,31 @@ public class UserController {
         this.userService = userService;
         this.roleService = roleService;
     }
+
     @GetMapping("/")
-    public String first () {
+    public String first() {
         return "login";
     }
 
     @GetMapping("/index")
-    public String index () {
+    public String index() {
         return "login";
     }
 
 
     @GetMapping("/login")
-    public ModelAndView loginPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
+    public String loginPage() {
+        return "login";
 
     }
+
     @GetMapping("/user")
-    public String oneUser (@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("user", user);
-        model.addAttribute("roles", user.getRoles());
+    public String oneUser() {
         return "user";
+    }
+    @GetMapping(value = "/admin")
+    public String adminPage() {
+        return "admin";
     }
 
 }

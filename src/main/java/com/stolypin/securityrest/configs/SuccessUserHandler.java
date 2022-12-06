@@ -1,4 +1,4 @@
-package com.stolypin.securitybootstrap.configs;
+package com.stolypin.securityrest.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

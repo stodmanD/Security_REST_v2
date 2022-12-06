@@ -1,8 +1,8 @@
-package com.stolypin.securitybootstrap.repository;
+package com.stolypin.securityrest.repository;
 
 
 
-import com.stolypin.securitybootstrap.model.User;
+import com.stolypin.securityrest.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

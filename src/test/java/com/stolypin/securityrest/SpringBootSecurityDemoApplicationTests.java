@@ -1,4 +1,4 @@
-package com.stolypin.securitybootstrap;
+package com.stolypin.securityrest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

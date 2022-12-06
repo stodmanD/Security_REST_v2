@@ -1,4 +1,4 @@
-package com.stolypin.securitybootstrap.model;
+package com.stolypin.securityrest.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

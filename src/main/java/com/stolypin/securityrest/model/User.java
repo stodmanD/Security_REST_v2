@@ -1,4 +1,4 @@
-package com.stolypin.securitybootstrap.model;
+package com.stolypin.securityrest.model;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
+
 @Table (name = "users")
 public class User implements UserDetails {
     @Id

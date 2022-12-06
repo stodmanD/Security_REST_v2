@@ -1,8 +1,8 @@
-package com.stolypin.securitybootstrap.services;
+package com.stolypin.securityrest.services;
 
-import com.stolypin.securitybootstrap.model.User;
+import com.stolypin.securityrest.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.stolypin.securitybootstrap.repository.UserRepository;
+import com.stolypin.securityrest.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
