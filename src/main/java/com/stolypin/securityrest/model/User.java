@@ -7,10 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-
 @Table (name = "users")
 public class User implements UserDetails {
     @Id
@@ -33,10 +33,10 @@ public class User implements UserDetails {
     @Column (name = "password")
     private  String password;
 
-    @Column (name = "username")
+    @Column (name = "username", unique = true)
     private  String username;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "users_id"),
@@ -44,6 +44,15 @@ public class User implements UserDetails {
     private Set<Role> roles;
 
     public User() {
+    }
+
+    public User(String name, String surname, String department, Integer salary, String password, String username) {
+        this.name = name;
+        this.surname = surname;
+        this.department = department;
+        this.salary = salary;
+        this.password = password;
+        this.username = username;
     }
 
     public User(String name, String surname, String department, Integer salary, String password, String username, Set<Role> roles) {
@@ -54,10 +63,6 @@ public class User implements UserDetails {
         this.password = password;
         this.username = username;
         this.roles = roles;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public Integer getId() {
@@ -100,26 +105,17 @@ public class User implements UserDetails {
         this.salary = salary;
     }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> role) {
-        this.roles = role;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        return roles;
-    }
-
-    public String getPassword() {
-        return password;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -127,11 +123,30 @@ public class User implements UserDetails {
         return username;
     }
 
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = new HashSet<>();
+        if (roles.contains("ROLE_ADMIN")) {
+            this.roles.add(new Role("ROLE_ADMIN"));
+        }
+        if (roles.contains("ROLE_USER")) {
+            this.roles.add(new Role("ROLE_USER"));
+        }
+
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
+    }
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
         return true;
@@ -146,6 +161,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 
 
 }

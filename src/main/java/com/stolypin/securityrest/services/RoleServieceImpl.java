@@ -28,6 +28,11 @@ public class RoleServieceImpl implements RoleService{
     }
 
     @Override
+    public void addRole(Set<Role> role) {
+        roleRepository.saveAll(role);
+    }
+
+    @Override
     public void saveRole (Role role) {
         roleRepository.save(role);
     }
