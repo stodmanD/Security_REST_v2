@@ -39,7 +39,7 @@ public class RoleServieceImpl implements RoleService{
 
 
     @Override
-    public Role getRole(int id) {
+    public Role getRole(Integer id) {
         Role role = null;
         Optional<Role> opr = roleRepository.findById(id);
         if (opr.isPresent()) {
@@ -49,7 +49,7 @@ public class RoleServieceImpl implements RoleService{
     }
 
     @Override
-    public void deleteRoleById(int id) {
+    public void deleteRoleById(Integer id) {
         roleRepository.deleteById(id);
     }
 

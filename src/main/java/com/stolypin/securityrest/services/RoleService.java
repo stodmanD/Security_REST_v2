@@ -10,9 +10,9 @@ public interface RoleService {
     void saveRole (Role role);
     Role findByRole(String role);
 
-    Role getRole(int id);
+    Role getRole(Integer id);
 
-    void deleteRoleById(int id);
+    void deleteRoleById(Integer id);
 
     Role getByName(String roleName) throws Exception;
 

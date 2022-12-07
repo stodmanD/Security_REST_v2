@@ -10,10 +10,11 @@ import java.util.Set;
 public class Role implements GrantedAuthority {
 
     @Id
-    private int id;
+    private Integer id;
     @Column (name = "role")
     private String role;
 
+    @Transient
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
@@ -23,11 +24,11 @@ public class Role implements GrantedAuthority {
         return role;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

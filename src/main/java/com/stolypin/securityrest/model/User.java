@@ -16,7 +16,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column (name = "name")
     private String name;
@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private  String department;
 
     @Column (name = "salary")
-    private int salary;
+    private Integer salary;
 
     @Column (name = "password")
     private  String password;
@@ -36,7 +36,7 @@ public class User implements UserDetails {
     @Column (name = "username")
     private  String username;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "users_id"),
@@ -46,7 +46,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String surname, String department, int salary, String password, String username, Set<Role> roles) {
+    public User(String name, String surname, String department, Integer salary, String password, String username, Set<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.department = department;
@@ -60,11 +60,11 @@ public class User implements UserDetails {
         this.username = username;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -92,11 +92,11 @@ public class User implements UserDetails {
         this.department = department;
     }
 
-    public int getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 

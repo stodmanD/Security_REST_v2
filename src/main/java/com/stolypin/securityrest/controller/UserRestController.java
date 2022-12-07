@@ -30,7 +30,7 @@ public class UserRestController {
     }
 
     @GetMapping("/{id}")
-    public User getUser (@PathVariable int id) {
+    public User getUser (@PathVariable Integer id) {
         User user = userService.getUser(id);
 
         return user;
@@ -47,7 +47,7 @@ public class UserRestController {
         return user;
     }
     @DeleteMapping("/{id}")
-    public String deleteUser (@PathVariable int id) {
+    public String deleteUser (@PathVariable Integer id) {
         User user = userService.getUser(id);
         if (user == null) {
             throw new NoSuchElementException("User by id" + id + "not found");

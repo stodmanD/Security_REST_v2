@@ -12,10 +12,10 @@ public interface UserService {
 
     void addUser(User user);
 
-    User getUser(int id);
+    User getUser(Integer id);
 
 
-    void deleteUser(int id);
+    void deleteUser(Integer id);
 
    User getByUsername(String username);
 }

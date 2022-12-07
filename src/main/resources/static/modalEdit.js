@@ -53,7 +53,7 @@ function modalEdit(id) {
                 '                    </p>' +
                 '                    <p>' +
                 '                        <label>Department</label>' +
-                '                        <input class="form-control form-control-sm" type="number"' +
+                '                        <input class="form-control form-control-sm" type="text"' +
                 '                               id="editDepartment" value="' + user.department + '" ' +
                 '                               placeholder="department" required>' +
                 '                    </p>' +
