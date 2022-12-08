@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -56,6 +57,16 @@ public class UserRestController {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping("/u")
+    public ResponseEntity<User> getUser(Principal principal) {
+        return ResponseEntity.ok(userService.getByUsername(principal.getName()));
+    }
+
+//    @GetMapping("/getAuthorizedUser") //при переходе на http://localhost:8080/getAuthorizedUser получаем json авторизованного юзера
+//    public ResponseEntity<User> getAuthorizedUser() {
+//        User authorizedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        return ResponseEntity.ok().body(authorizedUser);
+//    }
 }
 
 

@@ -1,7 +1,7 @@
 Header();
 //запрос на получение данных в виде json
 function Header() {
-    fetch('http://localhost:8080/api/users/getAuthorizedUser')
+    fetch('http://localhost:8080/user')
         .then(response => response.json())
         .then(user => {
             //ищем по id username юзера и записываем в header_username в виде строки (.innerHTML)

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" class="h-100"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
@@ -10,9 +14,15 @@
 <body class="bg-light">
 <!--------------Верхняя панель для logout---------------->
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-    <strong><span id="header_username"></span></strong><span id="header_roles"></span>
-  </a>
+
+
+
+<span>
+        <span class="navbar-brand font-weight-bold" th:text="${user.getUsername()}"></span>
+         <span class="navbar-brand"
+               th:text="'with roles: ' + ${user.getRoles()}"></span>
+    </span>
+
   <ul class="nav navbar-nav navbar-right">
     <li class="nav-item">
       <a class="nav-link" href="/logout">Logout</a>
